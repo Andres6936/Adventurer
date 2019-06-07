@@ -58,8 +58,8 @@ public class MouseInput implements MouseMotionListener, MouseListener
         Rectangle camera = Camera.instance.getCameraBounds( );
 
         // calculate position
-        int x = ( mouseX / Game.CAMERAZOOM + camera.x );
-        int y = ( mouseY / Game.CAMERAZOOM + camera.y );
+        int x = ( mouseX / Game.CAMERA_ZOOM + camera.x );
+        int y = ( mouseY / Game.CAMERA_ZOOM + camera.y );
 
         return new Coordinate( x, y );
     }

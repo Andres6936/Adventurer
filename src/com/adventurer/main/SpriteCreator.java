@@ -41,30 +41,10 @@ public class SpriteCreator
         pixels = image.getRGB( 0, 0, width, height, null, 0, width );
     }
 
-    // https://stackoverflow.com/questions/9558981/flip-image-with-graphics2d
-    public BufferedImage FlipSpriteVertically( BufferedImage img )
-    {
-        AffineTransform tx = AffineTransform.getScaleInstance( 1, - 1 );
-        tx.translate( 0, - img.getHeight( null ) );
-        AffineTransformOp op = new AffineTransformOp( tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR );
-        BufferedImage image = op.filter( img, null );
-        return image;
-    }
-
-    // https://stackoverflow.com/questions/9558981/flip-image-with-graphics2d
-    public BufferedImage FlipSpriteHorizontally( BufferedImage img )
-    {
-        AffineTransform tx = AffineTransform.getScaleInstance( - 1, 1 );
-        tx.translate( - img.getWidth( null ), 0 );
-        AffineTransformOp op = new AffineTransformOp( tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR );
-        BufferedImage retimage = op.filter( img, null );
-        return retimage;
-    }
-
     public BufferedImage CreateSprite( SpriteType type )
     {
 
-        BufferedImage sprite = new BufferedImage( Game.SPRITESIZE, Game.SPRITESIZE, BufferedImage.TYPE_INT_ARGB );
+        BufferedImage sprite = new BufferedImage( Game.SPRITE_SIZE, Game.SPRITE_SIZE, BufferedImage.TYPE_INT_ARGB );
         int[] spritePixelData = new int[ sprite.getWidth( ) * sprite.getHeight( ) ];
 
         // choose layout
@@ -158,10 +138,17 @@ public class SpriteCreator
                 row = 6; column = 0; break;
             case Chest02:
                 row = 6; column = 1; break;
+
             case LockedChest01:
                 row = 7; column = 0; break;
             case LockedChest02:
                 row = 7; column = 1; break;
+
+            // portals
+            case Portal01:
+                row = 8; column = 0; break;
+            case Portal02:
+                row = 8; column = 1; break;
 
             // items
             case GenericItem:
@@ -176,12 +163,6 @@ public class SpriteCreator
                 row = 15; column = 0; break;
             case ManaPotion:
                 row = 15; column = 1; break;
-
-            // portals
-            case Portal01:
-                row = 8; column = 0; break;
-            case Portal02:
-                row = 8; column = 1; break;
 
             // shrines
             case HealthShrine_01:
@@ -214,12 +195,4 @@ public class SpriteCreator
         }
         return new Coordinate( row, column );
     }
-
-    public String GetPath( ) { return this.path; }
-
-    public int[] GetPixelArray( ) { return this.pixels; }
-
-    public int GetWidth( ) { return this.width; }
-
-    public int GetHeight( ) { return this.height; }
 }

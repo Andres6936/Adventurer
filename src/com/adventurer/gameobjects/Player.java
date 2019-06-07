@@ -60,7 +60,7 @@ public class Player extends Actor
     public void tick( )
     {
         if ( myHP == null ) return;
-        if ( myHP.isDead( ) == false )
+        if ( ! myHP.isDead( ) )
         {
 
             UpdatePosition( );
@@ -91,7 +91,7 @@ public class Player extends Actor
     public void Move( Direction dir )
     {
 
-        if ( canMove == false ) return;
+        if ( ! canMove ) return;
 
         Tile tile = World.instance.GetTileFromDirection( this.GetTilePosition( ), dir );
 
@@ -128,9 +128,9 @@ public class Player extends Actor
             if ( tile instanceof Shrine ) ( ( Shrine ) tile ).activate( );
 
             // pickup items
-            if ( tile.GetItems( ).isEmpty( ) == false )
+            if ( ! tile.GetItems( ).isEmpty( ) )
             {
-                List< Item > temp = new ArrayList< Item >( tile.GetItems( ) );
+                List< Item > temp = new ArrayList<>( tile.GetItems( ) );
                 for ( Item i : temp ) pickUpItem( i );
             }
 
@@ -193,7 +193,7 @@ public class Player extends Actor
                 }
 
             }
-            else if ( door.isLocked( ) == false ) door.Open( );
+            else if ( ! door.isLocked( ) ) door.Open( );
 
         }
         else if ( tile.GetActor( ) != null )
@@ -240,15 +240,16 @@ public class Player extends Actor
             }
 
         }
-        else if ( tile.GetTileType( ) == TileType.DestructibleTile )
+        else
         {
             // TODO: interaction with destructible tiles.
+            tile.GetTileType( );
         }
     }
 
-    public void pickUpItem( Item item )
+    private void pickUpItem( Item item )
     {
-        if ( this.inventory.isFull( ) == false )
+        if ( ! this.inventory.isFull( ) )
         {
             this.inventory.addToInventory( item );
             item.Remove( );
@@ -282,15 +283,13 @@ public class Player extends Actor
         this.getMana( ).setMaxMP( mana );
     }
 
-    public void updateDmg( )
+    private void updateDmg( )
     {
         Offense offense = this.getOffense( );
         offense.setTotalMeleeDmgOfType( DamageType.Physical, Util.calcMeleeDamage( this.stats.getSumStr( ) ) );
     }
 
     public String toString( ) { return "You, our hero."; }
-
-    public LoSManager getLosManager( ) { return this.losmanager; }
 
     public Inventory getInventory( ) { return this.inventory; }
 
@@ -300,9 +299,6 @@ public class Player extends Actor
 
     public PlayerClass getPlayerClass( ) { return playerClass; }
 
-    public void setPlayerClass( PlayerClass playerClass ) { this.playerClass = playerClass; }
-
     public Experience getPlayerExperience( ) { return playerExperience; }
 
-    public void setPlayerExperience( Experience playerExperience ) { this.playerExperience = playerExperience; }
 }

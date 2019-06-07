@@ -213,7 +213,7 @@ public class World
                 Tile tile = null;
 
                 Coordinate tilePos = new Coordinate( x, y );
-                Coordinate worldPos = new Coordinate( x * Game.SPRITESIZE + offsetX, y * Game.SPRITESIZE + offsetY );
+                Coordinate worldPos = new Coordinate( x * Game.SPRITE_SIZE + offsetX, y * Game.SPRITE_SIZE + offsetY );
 
                 // read map and create a tile
                 char mapChar = map[ y ][ x ];
@@ -486,8 +486,8 @@ public class World
 
     public Coordinate ConvertTilePositionToWorld( Coordinate pos )
     {
-        return new Coordinate( pos.getX( ) * Game.SPRITESIZE + Game.TILEGAP * pos.getX( ),
-                               pos.getY( ) * Game.SPRITESIZE + Game.TILEGAP * pos.getY( ) );
+        return new Coordinate( pos.getX( ) * Game.SPRITE_SIZE + Game.TILEGAP * pos.getX( ),
+                               pos.getY( ) * Game.SPRITE_SIZE + Game.TILEGAP * pos.getY( ) );
     }
 
     // creates a new TILE and destroys the old one.

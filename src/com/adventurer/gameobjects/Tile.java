@@ -52,7 +52,7 @@ public class Tile extends GameObject
 
         if ( camera != null )
         {
-            if ( camera.contains( x + Game.SPRITESIZE / 2, y + Game.SPRITESIZE / 2 ) ) { inView = true; }
+            if ( camera.contains( x + Game.SPRITE_SIZE / 2, y + Game.SPRITE_SIZE / 2 ) ) { inView = true; }
             else { inView = false; }
         }
 
@@ -220,6 +220,6 @@ public class Tile extends GameObject
 
     public Rectangle GetBounds( )
     {
-        return new Rectangle( this.GetWorldPosition( ).getX( ), this.GetWorldPosition( ).getY( ), Game.SPRITESIZE, Game.SPRITESIZE );
+        return new Rectangle( this.GetWorldPosition( ).getX( ), this.GetWorldPosition( ).getY( ), Game.SPRITE_SIZE, Game.SPRITE_SIZE );
     }
 }

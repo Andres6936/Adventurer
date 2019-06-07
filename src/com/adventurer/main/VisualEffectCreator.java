@@ -22,7 +22,7 @@ public class VisualEffectCreator
             for ( int i = 0; i < Util.GetRandomInteger( 1, 5 ); i++ )
             {
 
-                int maxOffset = Game.SPRITESIZE / 2;
+                int maxOffset = Game.SPRITE_SIZE / 2;
 
                 Coordinate offset = new Coordinate( Util.GetRandomInteger( - maxOffset, maxOffset ), Util.GetRandomInteger( - maxOffset, maxOffset ) );
                 Coordinate pos = new Coordinate( tile.GetWorldPosition( ).getX( ) + offset.getX( ), tile.GetWorldPosition( ).getY( ) + offset.getY( ) );

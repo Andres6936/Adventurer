@@ -127,7 +127,7 @@ public class Renderer
         Renderer.FillScreen( g, Color.black );
 
         // zoom
-        g2d.scale( Game.CAMERAZOOM, Game.CAMERAZOOM );
+        g2d.scale( Game.CAMERA_ZOOM, Game.CAMERA_ZOOM );
 
         // TODO: CAMERA STUFF SHOULD NOT BE HERE!
         // camera follow
@@ -182,19 +182,19 @@ public class Renderer
     public static void RenderSpriteWithBorder( BufferedImage sprite, Coordinate pos, Graphics g, Color borderColor )
     {
         BufferedImage img = Util.highlightTileBorders( sprite, borderColor );
-        g.drawImage( img, pos.getX( ), pos.getY( ), Game.SPRITESIZE, Game.SPRITESIZE, null );
+        g.drawImage( img, pos.getX( ), pos.getY( ), Game.SPRITE_SIZE, Game.SPRITE_SIZE, null );
     }
 
     public static void RenderSpriteWithTint( BufferedImage sprite, Coordinate pos, Graphics g, Color tint )
     {
         BufferedImage img = Util.tintWithColor( sprite, tint );
-        g.drawImage( img, pos.getX( ), pos.getY( ), Game.SPRITESIZE, Game.SPRITESIZE, null );
+        g.drawImage( img, pos.getX( ), pos.getY( ), Game.SPRITE_SIZE, Game.SPRITE_SIZE, null );
     }
 
     // render without rotation
     public static void RenderSprite( BufferedImage sprite, Coordinate pos, Graphics g )
     {
-        g.drawImage( sprite, pos.getX( ), pos.getY( ), Game.SPRITESIZE, Game.SPRITESIZE, null );
+        g.drawImage( sprite, pos.getX( ), pos.getY( ), Game.SPRITE_SIZE, Game.SPRITE_SIZE, null );
     }
 
     // render with 90 degree rotation
@@ -219,12 +219,12 @@ public class Renderer
         double rot = Math.toRadians( angle );
         int x = pos.getX( );
         int y = pos.getY( );
-        int halfOfSpriteSize = Game.SPRITESIZE / 2;
+        int halfOfSpriteSize = Game.SPRITE_SIZE / 2;
         int xcenter = x + halfOfSpriteSize;
         int ycenter = y + halfOfSpriteSize;
 
         g2d.rotate( rot, xcenter, ycenter );
-        g.drawImage( sprite, x, y, Game.SPRITESIZE, Game.SPRITESIZE, null );
+        g.drawImage( sprite, x, y, Game.SPRITE_SIZE, Game.SPRITE_SIZE, null );
         g2d.rotate( - rot, xcenter, ycenter );
     }
 

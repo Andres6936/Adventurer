@@ -19,9 +19,9 @@ import com.adventurer.gameobjects.Usable;
 public class KeyInput extends KeyAdapter
 {
 
-    private List< Integer > buttons = new ArrayList< Integer >( );
+    private List< Integer > buttons = new ArrayList<>( );
 
-    public KeyInput( ) {}
+    KeyInput( ) {}
 
     public void keyPressed( KeyEvent e )
     {
@@ -48,14 +48,14 @@ public class KeyInput extends KeyAdapter
         // -------------- HANDLE INPUTS ------------------
 
         // toggle keys
-        if ( buttons.contains( key ) == false ) { buttons.add( key ); }
+        if ( ! buttons.contains( key ) ) { buttons.add( key ); }
         else { return; }
 
         // cache in which gui state are we in.
         GUIState GUIState = Game.instance.getGUIState( );
 
         // decide what actions to do when in different GUI-states.
-        if ( GUIState == GUIState.None )
+        if ( GUIState == com.adventurer.enumerations.GUIState.None )
         {
 
             // movement
@@ -68,18 +68,18 @@ public class KeyInput extends KeyAdapter
             if ( key == KeyEvent.VK_I )
             {
                 Handler.instance.setInventoryCursorPos( 0 );
-                Game.instance.setGUIState( GUIState.Inventory );
+                Game.instance.setGUIState( com.adventurer.enumerations.GUIState.Inventory );
             }
 
             // Toggle equipment state
             if ( key == KeyEvent.VK_E )
             {
                 Handler.instance.setEquipmentCursorPos( 0 );
-                Game.instance.setGUIState( GUIState.Equipment );
+                Game.instance.setGUIState( com.adventurer.enumerations.GUIState.Equipment );
             }
 
         }
-        else if ( GUIState == GUIState.Inventory )
+        else if ( GUIState == com.adventurer.enumerations.GUIState.Inventory )
         {
 
             boolean success = false;
@@ -136,7 +136,7 @@ public class KeyInput extends KeyAdapter
             if ( key == KeyEvent.VK_ESCAPE )
             {
                 Handler.instance.setShowItemInspect( false );
-                Game.instance.setGUIState( GUIState.None );
+                Game.instance.setGUIState( com.adventurer.enumerations.GUIState.None );
             }
 
             // exit inventory mode automatically
@@ -144,13 +144,13 @@ public class KeyInput extends KeyAdapter
             {
                 if ( success )
                 {
-                    Game.instance.setGUIState( GUIState.None );
+                    Game.instance.setGUIState( com.adventurer.enumerations.GUIState.None );
                     Handler.instance.setShowItemInspect( false );
                 }
             }
 
         }
-        else if ( GUIState == GUIState.Equipment )
+        else if ( GUIState == com.adventurer.enumerations.GUIState.Equipment )
         {
 
             boolean success = false;
@@ -246,7 +246,7 @@ public class KeyInput extends KeyAdapter
             if ( key == KeyEvent.VK_ESCAPE )
             {
                 Handler.instance.setShowItemInspect( false );
-                Game.instance.setGUIState( GUIState.None );
+                Game.instance.setGUIState( com.adventurer.enumerations.GUIState.None );
             }
 
             // exit inventory mode automatically
@@ -255,7 +255,7 @@ public class KeyInput extends KeyAdapter
                 if ( success )
                 {
                     Handler.instance.setShowItemInspect( false );
-                    Game.instance.setGUIState( GUIState.None );
+                    Game.instance.setGUIState( com.adventurer.enumerations.GUIState.None );
                 }
             }
         }

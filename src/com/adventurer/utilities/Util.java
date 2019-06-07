@@ -232,8 +232,8 @@ public class Util
 
     public static Coordinate calculateCameraPos( Player player )
     {
-        int x = ( ( - player.GetWorldPosition( ).getX( ) * Game.CAMERAZOOM ) - ( Game.SPRITESIZE - Game.WIDTH / 2 ) ) / Game.CAMERAZOOM;
-        int y = ( ( - player.GetWorldPosition( ).getY( ) * Game.CAMERAZOOM ) - ( Game.SPRITESIZE - Game.HEIGHT / 2 ) ) / Game.CAMERAZOOM;
+        int x = ( ( - player.GetWorldPosition( ).getX( ) * Game.CAMERA_ZOOM ) - ( Game.SPRITE_SIZE - Game.WIDTH / 2 ) ) / Game.CAMERA_ZOOM;
+        int y = ( ( - player.GetWorldPosition( ).getY( ) * Game.CAMERA_ZOOM ) - ( Game.SPRITE_SIZE - Game.HEIGHT / 2 ) ) / Game.CAMERA_ZOOM;
         return new Coordinate( x, y );
     }
 

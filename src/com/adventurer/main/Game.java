@@ -25,15 +25,33 @@ public class Game extends Canvas implements Runnable
 
     public static Game instance;
 
-    public static final int WIDTH = 1280;                       // viewport width
-    public static final int HEIGHT = 720;                      // viewport height
+    /**
+     * Viewport width
+     */
+    public static final int WIDTH = 1280;
 
-    public static final int CAMERA_WIDTH = 1273 / Game.CAMERAZOOM;
-    public static final int CAMERA_HEIGHT = 690 / Game.CAMERAZOOM;
+    /**
+     * Viewport height
+     */
+    public static final int HEIGHT = 720;
 
-    public static final int SPRITESIZE = 16;                       // sprite size in pixels
-    public static final int CAMERAZOOM = 2;                        // level of zoom
-    public static final double FRAME_CAP = 60.0;                     // cap the framerate to this
+    public static final int CAMERA_WIDTH = 1273 / Game.CAMERA_ZOOM;
+    public static final int CAMERA_HEIGHT = 690 / Game.CAMERA_ZOOM;
+
+    /**
+     * Sprite size in pixels
+     */
+    public static final int SPRITE_SIZE = 16;
+
+    /**
+     * Level of zoom
+     */
+    public static final int CAMERA_ZOOM = 2;
+
+    /**
+     * Cap the framerate to this
+     */
+    public static final double FRAME_CAP = 60.0;
 
     public static final String SPRITESHEETNAME = "images/spritesheet_simple.png";  // name of the spritesheet
     public static final String BACKGROUNDNAME = "images/background.jpg";           // name of the main menu background
@@ -151,7 +169,7 @@ public class Game extends Canvas implements Runnable
         Game.instance = this;
 
         gameState = GameState.MainMenu;
-        GUIState = GUIState.None;
+        GUIState = com.adventurer.enumerations.GUIState.None;
 
         // create object handler
         new Handler( );
@@ -227,8 +245,9 @@ public class Game extends Canvas implements Runnable
         final double frameTime = 1 / FRAME_CAP;
         final long SECOND = 1000000000L;
 
-        boolean render = false;
-        long now = 0l, passedTime = 0l;
+        boolean render;
+        long now;
+        long passedTime;
 
         while ( isRunning )
         {
@@ -300,7 +319,7 @@ public class Game extends Canvas implements Runnable
 
     private void tick( ) { Handler.instance.tick( ); }
 
-    public static void main( String args[] ) { new Game( ); }
+    public static void main( String[] args ) { new Game( ); }
 
     public Window getWindow( ) { return this.window; }
 
