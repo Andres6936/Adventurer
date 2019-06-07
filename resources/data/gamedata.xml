@@ -1,0 +1,774 @@
+<?xml version="1.0" ?>
+<gamedata>
+
+	<!--  Enemies are made up by Baserfaz -->
+	<enemies>
+	
+		<enemy>
+			<name>Skeleton warrior</name>
+			<enemyType>Undead</enemyType>
+			<health>25</health>
+			<damage>15</damage>
+			<isRanged>false</isRanged>
+			<movementSpeed>2</movementSpeed>
+			<movementCooldownBase>1000</movementCooldownBase>
+			<exp>15</exp>
+			<resistances>
+				<physicalRes>2</physicalRes>
+				<fireRes>2</fireRes>
+				<frostRes>1</frostRes>
+				<shockRes>1</shockRes>
+				<holyRes>0</holyRes>
+			</resistances>
+		</enemy>
+		
+		<enemy>
+			<name>Zombie walker</name>
+			<enemyType>Undead</enemyType>
+			<health>20</health>
+			<damage>10</damage>
+			<isRanged>false</isRanged>
+			<movementSpeed>2</movementSpeed>
+			<movementCooldownBase>1500</movementCooldownBase>
+			<exp>15</exp>
+			<resistances>
+				<physicalRes>2</physicalRes>
+				<fireRes>2</fireRes>
+				<frostRes>2</frostRes>
+				<shockRes>2</shockRes>
+				<holyRes>0</holyRes>
+			</resistances>
+		</enemy>
+		
+		<enemy>
+			<name>Maggot</name>
+			<enemyType>Beast</enemyType>
+			<health>10</health>
+			<damage>3</damage>
+			<isRanged>false</isRanged>
+			<movementSpeed>1</movementSpeed>
+			<movementCooldownBase>1750</movementCooldownBase>
+			<exp>15</exp>
+			<resistances>
+				<physicalRes>2</physicalRes>
+				<fireRes>1</fireRes>
+				<frostRes>1</frostRes>
+				<shockRes>1</shockRes>
+				<holyRes>1</holyRes>
+			</resistances>
+		</enemy>
+		
+		<enemy>
+			<name>Ghoul Archer</name>
+			<enemyType>Undead</enemyType>
+			<health>15</health>
+			<damage>15</damage>
+			<isRanged>true</isRanged>
+			<movementSpeed>2</movementSpeed>
+			<movementCooldownBase>1000</movementCooldownBase>
+			<exp>15</exp>
+			<resistances>
+				<physicalRes>2</physicalRes>
+				<fireRes>3</fireRes>
+				<frostRes>3</frostRes>
+				<shockRes>3</shockRes>
+				<holyRes>0</holyRes>
+			</resistances>
+		</enemy>
+		
+		<enemy>
+			<name>Wraith</name>
+			<enemyType>Otherworldly</enemyType>
+			<health>10</health>
+			<damage>5</damage>
+			<isRanged>false</isRanged>
+			<movementSpeed>3</movementSpeed>
+			<movementCooldownBase>500</movementCooldownBase>
+			<exp>15</exp>
+			<resistances>
+				<physicalRes>0</physicalRes>
+				<fireRes>1</fireRes>
+				<frostRes>1</frostRes>
+				<shockRes>1</shockRes>
+				<holyRes>1</holyRes>
+			</resistances>
+		</enemy>
+		
+		<enemy>
+			<name>Orc</name>
+			<enemyType>Humanoid</enemyType>
+			<health>40</health>
+			<damage>15</damage>
+			<isRanged>false</isRanged>
+			<movementSpeed>1</movementSpeed>
+			<movementCooldownBase>1000</movementCooldownBase>
+			<exp>15</exp>
+			<resistances>
+				<physicalRes>2</physicalRes>
+				<fireRes>3</fireRes>
+				<frostRes>3</frostRes>
+				<shockRes>3</shockRes>
+				<holyRes>0</holyRes>
+			</resistances>	
+		</enemy>
+		
+		<enemy>
+			<name>Bat</name>
+			<enemyType>Beast</enemyType>
+			<health>10</health>
+			<damage>5</damage>
+			<isRanged>false</isRanged>
+			<movementSpeed>2</movementSpeed>
+			<movementCooldownBase>400</movementCooldownBase>
+			<exp>15</exp>
+			<resistances>
+				<physicalRes>1</physicalRes>
+				<fireRes>0</fireRes>
+				<frostRes>0</frostRes>
+				<shockRes>0</shockRes>
+				<holyRes>0</holyRes>
+			</resistances>	
+		</enemy>
+
+	</enemies>
+	
+	<!--  Armors and weapons are taken from microlite20 (dnd game).  
+	Can be found here: http://donjon.bin.sh/m20/Microlite20.pdf -->
+	<items>
+	
+		<armor>
+			<name>Padded</name>
+			<description>Padded armor.</description>
+			<value>2</value>
+			<defenseValues>
+				<Physical>1</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>Leather</name>
+			<description>Leather armor.</description>
+			<value>10</value>
+			<defenseValues>
+				<Physical>2</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>StuddedLeather</name>
+			<description>Studded leather armor.</description>
+			<value>25</value>
+			<defenseValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>Hide</name>
+			<description>Hide armor.</description>
+			<value>15</value>
+			<defenseValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>ScaleMail</name>
+			<description>Scalemail armor.</description>
+			<value>50</value>
+			<defenseValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>Chainmail</name>
+			<description>Chainmail armor.</description>
+			<value>150</value>
+			<defenseValues>
+				<Physical>5</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>SplintMail</name>
+			<description>Splintmail armor.</description>
+			<value>200</value>
+			<defenseValues>
+				<Physical>6</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>BandedMail</name>
+			<description>Bandedmail armor.</description>
+			<value>250</value>
+			<defenseValues>
+				<Physical>6</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>HalfPlate</name>
+			<description>Half-plate armor.</description>
+			<value>600</value>
+			<defenseValues>
+				<Physical>7</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<armor>
+			<name>FullPlate</name>
+			<description>Full-plate armor.</description>
+			<value>1500</value>
+			<defenseValues>
+				<Physical>8</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</defenseValues>
+		</armor>
+		
+		<!--  1h weapons -->
+		
+		<weapon>
+			<name>Battleaxe</name>
+			<description></description>
+			<value>10</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Club</name>
+			<description></description>
+			<value>0</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Flail</name>
+			<description></description>
+			<value>8</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Longsword</name>
+			<description></description>
+			<value>15</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+
+		<weapon>
+			<name>HeavyMace</name>
+			<description></description>
+			<value>12</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Morningstar</name>
+			<description></description>
+			<value>8</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>HeavyPick</name>
+			<description></description>
+			<value>8</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Rapier</name>
+			<description></description>
+			<value>20</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Scimitar</name>
+			<description></description>
+			<value>15</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Shortspear</name>
+			<description></description>
+			<value>1</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>BastardSword</name>
+			<description></description>
+			<value>35</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>5</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Trident</name>
+			<description></description>
+			<value>15</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Waraxe</name>
+			<description></description>
+			<value>30</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>5</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Warhammer</name>
+			<description></description>
+			<value>12</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Whip</name>
+			<description></description>
+			<value>1</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>1</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<!--  light weapons -->
+		
+		<weapon>
+			<name>Dagger</name>
+			<description></description>
+			<value>2</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>2</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>LightHammer</name>
+			<description></description>
+			<value>1</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Handaxe</name>
+			<description></description>
+			<value>6</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>2</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>LightMace</name>
+			<description></description>
+			<value>5</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>LightPick</name>
+			<description></description>
+			<value>4</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>2</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>ShortSword</name>
+			<description></description>
+			<value>10</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Sickle</name>
+			<description></description>
+			<value>6</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<!--  shields -->
+		
+		<weapon>
+			<name>Buckler</name>
+			<description></description>
+			<value>15</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>offhand</weaponSlot>
+			<damageValues>
+				<Physical>1</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>LightWoodenShield</name>
+			<description></description>
+			<value>3</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>offhand</weaponSlot>
+			<damageValues>
+				<Physical>1</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>LightSteelShield</name>
+			<description></description>
+			<value>9</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>offhand</weaponSlot>
+			<damageValues>
+				<Physical>1</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>HeavyWoodenShield</name>
+			<description></description>
+			<value>7</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>offhand</weaponSlot>
+			<damageValues>
+				<Physical>2</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>HeavySteelShield</name>
+			<description></description>
+			<value>20</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>offhand</weaponSlot>
+			<damageValues>
+				<Physical>2</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>TowerShield</name>
+			<description></description>
+			<value>30</value>
+			<weaponType>melee</weaponType>
+			<weaponSlot>offhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<!--  ranged weapons -->
+		
+		<weapon>
+			<name>HandCrossbow</name>
+			<description></description>
+			<value>100</value>
+			<weaponType>ranged</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>2</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>HeavyCrossbow</name>
+			<description></description>
+			<value>50</value>
+			<weaponType>ranged</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>5</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>LightCrossbow</name>
+			<description></description>
+			<value>35</value>
+			<weaponType>ranged</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>Longbow</name>
+			<description></description>
+			<value>75</value>
+			<weaponType>ranged</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>4</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+		<weapon>
+			<name>ShortBow</name>
+			<description></description>
+			<value>30</value>
+			<weaponType>ranged</weaponType>
+			<weaponSlot>mainhand</weaponSlot>
+			<damageValues>
+				<Physical>3</Physical>
+				<Fire>0</Fire>
+				<Frost>0</Frost>
+				<Shock>0</Shock>
+				<Holy>0</Holy>
+			</damageValues>
+		</weapon>
+		
+	</items>
+
+</gamedata>
