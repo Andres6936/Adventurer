@@ -39,7 +39,7 @@ public class Window extends Canvas
         frame.setLocationRelativeTo( null );
 
         // set frame icon
-        ImageIcon img = new ImageIcon( Game.FRAMICONPATH );
+        ImageIcon img = new ImageIcon( Game.IMAGES_ICON_PNG );
         frame.setIconImage( img.getImage( ) );
 
         // add our game to the frame

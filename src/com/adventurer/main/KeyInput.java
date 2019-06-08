@@ -8,7 +8,7 @@ import java.util.List;
 import com.adventurer.data.Equipment;
 import com.adventurer.enumerations.ArmorSlot;
 import com.adventurer.enumerations.Direction;
-import com.adventurer.enumerations.GameState;
+import com.adventurer.enumerations.EGameState;
 import com.adventurer.enumerations.GUIState;
 import com.adventurer.enumerations.WeaponSlot;
 import com.adventurer.gameobjects.Equippable;
@@ -25,8 +25,8 @@ public class KeyInput extends KeyAdapter
 
     public void keyPressed( KeyEvent e )
     {
-        GameState currentState = Game.instance.getGameState( );
-        if ( currentState == GameState.InGame || currentState == GameState.Ready ) inGameKeys( e );
+        EGameState currentState = Game.instance.getGameState( );
+        if ( currentState == EGameState.IN_GAME || currentState == EGameState.READY ) inGameKeys( e );
     }
 
     private void inGameKeys( KeyEvent e )
@@ -36,9 +36,9 @@ public class KeyInput extends KeyAdapter
         int key = e.getKeyCode( );
 
         // when loading is finished, wait for player input to start game.
-        if ( Game.instance.getGameState( ) == GameState.Ready )
+        if ( Game.instance.getGameState( ) == EGameState.READY )
         {
-            Game.instance.setGameState( GameState.InGame );
+            Game.instance.setGameState( EGameState.IN_GAME );
             return;
         }
 

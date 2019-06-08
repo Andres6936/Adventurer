@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import com.adventurer.data.Camera;
 import com.adventurer.data.Coordinate;
 import com.adventurer.data.World;
-import com.adventurer.enumerations.GameState;
+import com.adventurer.enumerations.EGameState;
 import com.adventurer.gameobjects.Tile;
 
 public class MouseInput implements MouseMotionListener, MouseListener
@@ -23,15 +23,15 @@ public class MouseInput implements MouseMotionListener, MouseListener
 
     public void mousePressed( MouseEvent e )
     {
-        if ( Game.instance.getGameState( ) == GameState.MainMenu && e.getButton( ) == MouseEvent.BUTTON1 )
+        if ( Game.instance.getGameState( ) == EGameState.MAIN_MENU && e.getButton( ) == MouseEvent.BUTTON1 )
         { mousePressedInMainMenu( e ); }
     }
 
     public void mouseMoved( MouseEvent e )
     {
-        GameState currentState = Game.instance.getGameState( );
-        if ( currentState == GameState.InGame ) { mouseHoverInGame( e ); }
-        else if ( currentState == GameState.MainMenu ) mouseHoverInMainMenu( e );
+        EGameState currentState = Game.instance.getGameState( );
+        if ( currentState == EGameState.IN_GAME ) { mouseHoverInGame( e ); }
+        else if ( currentState == EGameState.MAIN_MENU ) mouseHoverInMainMenu( e );
     }
 
     // not used mouse stuff...

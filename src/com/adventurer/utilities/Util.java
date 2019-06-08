@@ -197,7 +197,7 @@ public class Util
     public static void loadCustomFont( )
     {
 
-        String fullPath = "resources/fonts/" + Game.CUSTOMFONTFOLDER + "/" + Game.CUSTOMFONTNAME + Game.CUSTOMFONTEXTENSION;
+        String fullPath = "resources/fonts/" + Game.CUSTOM_FONT_FOLDER + "/" + Game.CUSTOM_FONTNAME + Game.CUSTOM_FONT_EXTENSION;
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment( );
         Font font = null;

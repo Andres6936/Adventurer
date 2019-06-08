@@ -9,7 +9,7 @@ import java.util.Map;
 import com.adventurer.enumerations.DamageType;
 import com.adventurer.enumerations.Direction;
 import com.adventurer.enumerations.DoorType;
-import com.adventurer.enumerations.GameState;
+import com.adventurer.enumerations.EGameState;
 import com.adventurer.enumerations.RoomType;
 import com.adventurer.enumerations.ShrineType;
 import com.adventurer.enumerations.SpriteType;
@@ -56,7 +56,7 @@ public class World
         createPlayer( spawnTile );
 
         // set state.
-        Game.instance.setGameState( GameState.Ready );
+        Game.instance.setGameState( EGameState.READY );
     }
 
     // create a randomized dungeon level
@@ -139,7 +139,7 @@ public class World
         }
 
         // set state
-        Game.instance.setGameState( GameState.Ready );
+        Game.instance.setGameState( EGameState.READY );
     }
 
     // ---------------------------
@@ -194,7 +194,7 @@ public class World
         this.tiles = new ArrayList< Tile >( );
 
         // set state
-        Game.instance.setGameState( GameState.Loading );
+        Game.instance.setGameState( EGameState.LOADING );
     }
 
     private Tile CreatePredefinedMap( char[][] map )
@@ -266,12 +266,12 @@ public class World
                 tiles.add( tile );
 
                 // increment offset
-                offsetX += Game.TILEGAP;
+                offsetX += Game.TILE_GAP;
             }
 
             // increment and reset offsets.
             offsetX = 0;
-            offsetY += Game.TILEGAP;
+            offsetY += Game.TILE_GAP;
         }
         return spawnTile;
     }
@@ -486,8 +486,8 @@ public class World
 
     public Coordinate ConvertTilePositionToWorld( Coordinate pos )
     {
-        return new Coordinate( pos.getX( ) * Game.SPRITE_SIZE + Game.TILEGAP * pos.getX( ),
-                               pos.getY( ) * Game.SPRITE_SIZE + Game.TILEGAP * pos.getY( ) );
+        return new Coordinate( pos.getX( ) * Game.SPRITE_SIZE + Game.TILE_GAP * pos.getX( ),
+                               pos.getY( ) * Game.SPRITE_SIZE + Game.TILE_GAP * pos.getY( ) );
     }
 
     // creates a new TILE and destroys the old one.

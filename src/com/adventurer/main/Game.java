@@ -12,7 +12,7 @@ import com.adventurer.data.PredefinedMaps;
 import com.adventurer.data.SaveFile;
 import com.adventurer.data.Session;
 import com.adventurer.data.World;
-import com.adventurer.enumerations.GameState;
+import com.adventurer.enumerations.EGameState;
 import com.adventurer.enumerations.GUIState;
 import com.adventurer.utilities.Renderer;
 import com.adventurer.utilities.Util;
@@ -51,18 +51,47 @@ public class Game extends Canvas implements Runnable
     /**
      * Cap the framerate to this
      */
-    public static final double FRAME_CAP = 60.0;
+    private static final double FRAME_CAP = 60.0;
 
-    public static final String SPRITESHEETNAME = "images/spritesheet_simple.png";  // name of the spritesheet
-    public static final String BACKGROUNDNAME = "images/background.jpg";           // name of the main menu background
-    public static final String FRAMICONPATH = "resources/images/icon.png";      // path to frame icon.
+    /**
+     * Name of the Sprite Sheet
+     */
+    private static final String SPRITE_SHEET_SIMPLE_PNG = "images/spritesheet_simple.png";
 
-    public static final String CUSTOMFONTNAME = "coders_crux";               // name of the custom font
-    public static final String CUSTOMFONTEXTENSION = ".ttf";                   // file extension name
-    public static final String CUSTOMFONTFOLDER = "coders_crux";               // folder name within 'resources/fonts/'
+    /**
+     * Name of the main menu background
+     */
+    public static final String IMAGES_BACKGROUND_JPG = "images/Background.jpg";
 
-    public static final int BASEFONTSIZE = 8;                           // base font size used when rendering strings.
-    public static final int LINEHEIGHT = 2;                           // usage: renderer.renderString(): fontMetrics.getHeight() + lineheight
+    /**
+     * Path to frame icon
+     */
+    public static final String IMAGES_ICON_PNG = "resources/images/icon.png";
+
+    /**
+     * Name of the custom font
+     */
+    public static final String CUSTOM_FONTNAME = "coders_crux";
+
+    /**
+     * File extension name
+     */
+    public static final String CUSTOM_FONT_EXTENSION = ".ttf";
+
+    /**
+     * Folder name within 'resources/fonts/'
+     */
+    public static final String CUSTOM_FONT_FOLDER = "coders_crux";
+
+    /**
+     * Base font size used when rendering strings
+     */
+    static final int BASE_FONT_SIZE = 8;
+
+    /**
+     * Usage: renderer.renderString(): fontMetrics.getHeight() + lineheight
+     */
+    public static final int LINE_HEIGHT = 2;
 
     //------------------------------
     // DEBUGGING TOOLS AND GAME SETTINGS
@@ -103,7 +132,7 @@ public class Game extends Canvas implements Runnable
     public static final int CHEST_GOLD_CHANCE = 25;
 
     // tile settings
-    public static final int TILEGAP = 2;
+    public static final int TILE_GAP = 2;
 
     // player defaults
     public static final int PLAYER_START_BASE_HEALTH = 50;
@@ -131,8 +160,8 @@ public class Game extends Canvas implements Runnable
     public static final int START_PROJECTILE_COUNT = 1;
 
     // world size
-    public static final int WORLDHEIGHT = 30;
-    public static final int WORLDWIDTH = 30;
+    public static final int WORLD_HEIGHT = 30;
+    public static final int WORLD_WIDTH = 30;
 
     // room count
     public static final int ROOM_COUNT = 20;
@@ -153,7 +182,7 @@ public class Game extends Canvas implements Runnable
 
     private SaveFile currentSaveFile;
     private Session currentSession;
-    private GameState gameState;
+    private EGameState gameState;
     private GUIState GUIState;
 
     private String mainmenuSubtitle = "";
@@ -168,7 +197,7 @@ public class Game extends Canvas implements Runnable
 
         Game.instance = this;
 
-        gameState = GameState.MainMenu;
+        gameState = EGameState.MAIN_MENU;
         GUIState = com.adventurer.enumerations.GUIState.None;
 
         // create object handler
@@ -194,7 +223,7 @@ public class Game extends Canvas implements Runnable
         window = new Window( WIDTH, HEIGHT, "Adventurer", this );
 
         // create sprite creator
-        new SpriteCreator( SPRITESHEETNAME );
+        new SpriteCreator( SPRITE_SHEET_SIMPLE_PNG );
 
         // create camera
         new Camera( );
@@ -268,7 +297,7 @@ public class Game extends Canvas implements Runnable
                 unprocessedTime -= frameTime;
 
                 // update gameobjects only when we are in game.
-                if ( gameState == GameState.InGame ) tick( );
+                if ( gameState == EGameState.IN_GAME ) tick( );
 
                 if ( frameCounter >= SECOND )
                 {
@@ -304,9 +333,9 @@ public class Game extends Canvas implements Runnable
         //-------------------------------------------
         // DRAW GRAPHICS HERE
 
-        if ( gameState == GameState.InGame ) { Renderer.renderInGame( g ); }
-        else if ( gameState == GameState.Loading || gameState == GameState.Ready ) { Renderer.renderLoading( g ); }
-        else if ( gameState == GameState.MainMenu ) Renderer.renderMainMenu( g );
+        if ( gameState == EGameState.IN_GAME ) { Renderer.renderInGame( g ); }
+        else if ( gameState == EGameState.LOADING || gameState == EGameState.READY ) { Renderer.renderLoading( g ); }
+        else if ( gameState == EGameState.MAIN_MENU ) Renderer.renderMainMenu( g );
 
         // END DRAW
         //-------------------------------------------
@@ -323,9 +352,9 @@ public class Game extends Canvas implements Runnable
 
     public Window getWindow( ) { return this.window; }
 
-    public GameState getGameState( ) { return this.gameState; }
+    public EGameState getGameState( ) { return this.gameState; }
 
-    public void setGameState( GameState state ) { this.gameState = state; }
+    public void setGameState( EGameState state ) { this.gameState = state; }
 
     public SaveFile getCurrentSaveFile( ) { return currentSaveFile; }
 

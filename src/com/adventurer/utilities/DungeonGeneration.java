@@ -71,8 +71,8 @@ public class DungeonGeneration
 
                 // randomize start TILE position
                 startTilePos = new Coordinate(
-                        Util.GetRandomInteger( 0, Game.WORLDWIDTH ),
-                        Util.GetRandomInteger( 0, Game.WORLDHEIGHT ) );
+                        Util.GetRandomInteger( 0, Game.WORLD_WIDTH ),
+                        Util.GetRandomInteger( 0, Game.WORLD_HEIGHT ) );
 
                 tryCount += 1;
 
@@ -432,10 +432,10 @@ public class DungeonGeneration
                 // add tiles to list
                 tiles.add( tile );
 
-                offsetX += Game.TILEGAP;
+                offsetX += Game.TILE_GAP;
             }
             offsetX = 0;
-            offsetY += Game.TILEGAP;
+            offsetY += Game.TILE_GAP;
         }
 
         return new Room( width, height, startTilePos, tiles, roomtype );
@@ -449,9 +449,9 @@ public class DungeonGeneration
         // old tiles + new tiles?
         List< Tile > tiles_ = new ArrayList< Tile >( tiles );
 
-        for ( int y = 0; y < Game.WORLDHEIGHT; y++ )
+        for ( int y = 0; y < Game.WORLD_HEIGHT; y++ )
         {
-            for ( int x = 0; x < Game.WORLDWIDTH; x++ )
+            for ( int x = 0; x < Game.WORLD_WIDTH; x++ )
             {
 
                 boolean empty = true;
@@ -468,7 +468,7 @@ public class DungeonGeneration
                     }
                 }
 
-                if ( empty && ( y == 0 || y == Game.WORLDHEIGHT - 1 || x == 0 || x == Game.WORLDWIDTH - 1 ) )
+                if ( empty && ( y == 0 || y == Game.WORLD_HEIGHT - 1 || x == 0 || x == Game.WORLD_WIDTH - 1 ) )
                 {
 
                     Coordinate tilePos = new Coordinate( x, y );
@@ -492,9 +492,9 @@ public class DungeonGeneration
 
         List< Tile > tiles_ = new ArrayList< Tile >( );
 
-        for ( int y = 0; y < Game.WORLDHEIGHT; y++ )
+        for ( int y = 0; y < Game.WORLD_HEIGHT; y++ )
         {
-            for ( int x = 0; x < Game.WORLDWIDTH; x++ )
+            for ( int x = 0; x < Game.WORLD_WIDTH; x++ )
             {
 
                 boolean empty = true;
@@ -534,7 +534,7 @@ public class DungeonGeneration
         int x_ = startTilePos.getX( ) + width + 1;
         int y_ = startTilePos.getY( ) + height + 1;
 
-        if ( x_ > Game.WORLDWIDTH - 1 || y_ > Game.WORLDHEIGHT - 1 ) { return false; }
+        if ( x_ > Game.WORLD_WIDTH - 1 || y_ > Game.WORLD_HEIGHT - 1 ) { return false; }
         else { return true; }
     }
 

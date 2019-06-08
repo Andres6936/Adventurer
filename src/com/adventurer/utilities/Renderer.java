@@ -15,7 +15,7 @@ import com.adventurer.data.Coordinate;
 import com.adventurer.data.ParseData;
 import com.adventurer.data.World;
 import com.adventurer.enumerations.Direction;
-import com.adventurer.enumerations.GameState;
+import com.adventurer.enumerations.EGameState;
 import com.adventurer.enumerations.WorldType;
 import com.adventurer.gameobjects.Player;
 import com.adventurer.main.ActorManager;
@@ -35,7 +35,7 @@ public class Renderer
         {
             try
             {
-                Game.instance.setBackgroundImage( ImageIO.read( Renderer.class.getClass( ).getResourceAsStream( "/" + Game.BACKGROUNDNAME ) ) );
+                Game.instance.setBackgroundImage( ImageIO.read( Renderer.class.getClass( ).getResourceAsStream( "/" + Game.IMAGES_BACKGROUND_JPG ) ) );
             }
             catch ( IOException e ) { e.printStackTrace( ); }
         }
@@ -54,23 +54,23 @@ public class Renderer
         Renderer.renderString( Game.instance.getMainmenuSubtitle( ), new Coordinate( xPos + 20, 170 ), Color.gray, 18, g2d );
 
         // version info
-        Renderer.renderString( "Version: extra early\nDate: 13.8.2017", new Coordinate( xPos, 550 ), Color.gray, 16, g2d );
+        Renderer.renderString( "Version: extra early\nDate: 13.8.2017", new Coordinate( xPos, 480 ), Color.gray, 16, g2d );
 
         // creator info
-        Renderer.renderString( "By Baserfaz (Heikki Heiskanen)", new Coordinate( 900, 660 ), Color.gray, 16, g2d );
+        Renderer.renderString( "By Baserfaz (Heikki Heiskanen)", new Coordinate( 800, 10 ), Color.gray, 16, g2d );
 
         // draw play button
-        Renderer.renderButton( "Play", new Coordinate( xPos, 250 ), new Coordinate( 200, 50 ), Color.black, Color.white, 21, true, g2d );
+        Renderer.renderButton( "Play", new Coordinate( xPos + 10, 250 ), new Coordinate( 200, 50 ), Color.black, new Color( 193, 193, 185 ), 21, true, g2d );
 
         // draw exit button
-        Renderer.renderButton( "Exit", new Coordinate( xPos, 350 ), new Coordinate( 200, 50 ), Color.black, Color.white, 21, true, g2d );
+        Renderer.renderButton( "Exit", new Coordinate( xPos + 10, 350 ), new Coordinate( 200, 50 ), Color.black, new Color( 193, 193, 185 ), 21, true, g2d );
     }
 
     public static void renderLoading( Graphics g )
     {
 
         // get game state
-        GameState gameState = Game.instance.getGameState( );
+        EGameState gameState = Game.instance.getGameState( );
 
         Graphics2D g2d = ( Graphics2D ) g;
 
@@ -89,7 +89,7 @@ public class Renderer
                                    new Coordinate( Game.WIDTH / 3, 300 ), Color.white, 16, g2d );
 
             // dungeon settings
-            Renderer.renderString( "Dungeon size: " + Game.WORLDWIDTH + "x" + Game.WORLDHEIGHT +
+            Renderer.renderString( "Dungeon size: " + Game.WORLD_WIDTH + "x" + Game.WORLD_HEIGHT +
                                            "\nMax room count: " + Game.ROOM_COUNT +
                                            "\nMax doors per room: " + Game.ROOM_DOOR_MAX_COUNT,
                                    new Coordinate( Game.WIDTH / 3, 350 ), Color.white, 16, g2d );
@@ -98,11 +98,11 @@ public class Renderer
         else if ( World.instance.getWorldType( ) == WorldType.Predefined )
         {
 
-            if ( gameState == GameState.Loading )
+            if ( gameState == EGameState.LOADING )
             {
                 Renderer.renderString( "Creating world...", new Coordinate( Game.WIDTH / 3, 300 ), Color.white, 16, g2d );
             }
-            else if ( gameState == GameState.Ready )
+            else if ( gameState == EGameState.READY )
             {
                 // TODO: the name of the world/predefined map should not be hard coded.
                 Renderer.renderString( "World created. \n>> Lobby", new Coordinate( Game.WIDTH / 3, 300 ), Color.white, 16, g2d );
@@ -111,7 +111,7 @@ public class Renderer
         }
 
         // print finished
-        if ( gameState == GameState.Ready )
+        if ( gameState == EGameState.READY )
         {
             Renderer.renderString( "Press any key to continue...",
                                    new Coordinate( Game.WIDTH / 3, 500 ), Color.white, 16, g2d );
@@ -303,7 +303,7 @@ public class Renderer
             boolean hasRichText = false;
 
             // calculate string height from the start position
-            y += g2d.getFontMetrics( ).getHeight( ) + Game.LINEHEIGHT;
+            y += g2d.getFontMetrics( ).getHeight( ) + Game.LINE_HEIGHT;
 
             // parse the string for color commands
             ParseData data = RichTextParser.parseStringColor( line );
@@ -348,7 +348,7 @@ public class Renderer
 
             // draw the string as it is,
             // there is no richtext in it.
-            if ( hasRichText == false )
+            if ( ! hasRichText )
             {
                 g2d.setColor( baseColor );
                 g2d.drawString( line, x, y );

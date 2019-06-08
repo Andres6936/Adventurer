@@ -197,47 +197,47 @@ public class Handler
             // render general help
             Renderer.renderString(
                     "Play mode: Move/attack WASD, Inventory: I, Equipment: E, Character sheet: C, Mouse hover: info",
-                    help_coord, Color.gray, Game.BASEFONTSIZE, g2d
+                    help_coord, Color.gray, Game.BASE_FONT_SIZE, g2d
             );
 
         }
         else if ( Game.instance.getGUIState( ) == GUIState.Inventory )
         {
 
-            int stepSize = this.getInventoryCursorPos( ) * ( Game.BASEFONTSIZE + Game.LINEHEIGHT );
-            int yPos = inventory_coord.getY( ) + Game.BASEFONTSIZE + 1 + ( Game.LINEHEIGHT * 2 );
+            int stepSize = this.getInventoryCursorPos( ) * ( Game.BASE_FONT_SIZE + Game.LINE_HEIGHT );
+            int yPos = inventory_coord.getY( ) + Game.BASE_FONT_SIZE + 1 + ( Game.LINE_HEIGHT * 2 );
 
             // render inventory cursor
             Renderer.renderRect(
                     new Coordinate( inventory_coord.getX( ), stepSize + yPos ),
-                    new Coordinate( 120, Game.BASEFONTSIZE ),
+                    new Coordinate( 120, Game.BASE_FONT_SIZE ),
                     Color.white, Color.white, true, g2d
             );
 
             // render inventory help
             Renderer.renderString(
                     "Inventory mode: Move cursor up: W, down: S, Equip/Use item: E, Inspect: I, Drop item: R, Exit: ESC",
-                    help_coord, Color.gray, Game.BASEFONTSIZE, g2d
+                    help_coord, Color.gray, Game.BASE_FONT_SIZE, g2d
             );
 
         }
         else if ( Game.instance.getGUIState( ) == GUIState.Equipment )
         {
 
-            int stepSize = this.getEquipmentCursorPos( ) * ( Game.BASEFONTSIZE + Game.LINEHEIGHT );
-            int yPos = equipment_coord.getY( ) + Game.BASEFONTSIZE + 1 + ( Game.LINEHEIGHT * 2 );
+            int stepSize = this.getEquipmentCursorPos( ) * ( Game.BASE_FONT_SIZE + Game.LINE_HEIGHT );
+            int yPos = equipment_coord.getY( ) + Game.BASE_FONT_SIZE + 1 + ( Game.LINE_HEIGHT * 2 );
 
             // render equipment cursor
             Renderer.renderRect(
                     new Coordinate( equipment_coord.getX( ), stepSize + yPos ),
-                    new Coordinate( 120, Game.BASEFONTSIZE ),
+                    new Coordinate( 120, Game.BASE_FONT_SIZE ),
                     Color.white, Color.white, true, g2d
             );
 
             // render equipment help
             Renderer.renderString(
                     "Equipment mode: Move cursor up: W, down: S, Unequip item: E, Inspect: I, Exit: ESC",
-                    help_coord, Color.gray, Game.BASEFONTSIZE, g2d
+                    help_coord, Color.gray, Game.BASE_FONT_SIZE, g2d
             );
 
         }
@@ -278,7 +278,7 @@ public class Handler
         {
 
             // render location tag.
-            Renderer.renderString( "Location: ", dungeonInfo_coord, Color.white, Game.BASEFONTSIZE, g2d );
+            Renderer.renderString( "Location: ", dungeonInfo_coord, Color.white, Game.BASE_FONT_SIZE, g2d );
 
             // render dungeon name and level
             if ( World.instance.getWorldType( ) == WorldType.Predefined )
@@ -287,7 +287,7 @@ public class Handler
                 Renderer.renderString(
                         "Chilly lobby",
                         new Coordinate( dungeonInfo_coord.getX( ) + 50, dungeonInfo_coord.getY( ) ),
-                        Color.gray, Game.BASEFONTSIZE, g2d
+                        Color.gray, Game.BASE_FONT_SIZE, g2d
                 );
 
             }
@@ -300,7 +300,7 @@ public class Handler
                     Renderer.renderString(
                             "Dungeon (lvl. " + Game.instance.getCurrentSession( ).getDungeonLevel( ) + ")",
                             new Coordinate( dungeonInfo_coord.getX( ) + 50, dungeonInfo_coord.getY( ) ),
-                            Color.gray, Game.BASEFONTSIZE, g2d
+                            Color.gray, Game.BASE_FONT_SIZE, g2d
                     );
 
                 }
@@ -310,7 +310,7 @@ public class Handler
                     Renderer.renderString(
                             "DEBUGGING",
                             new Coordinate( dungeonInfo_coord.getX( ) + 50, dungeonInfo_coord.getY( ) ),
-                            Color.gray, Game.BASEFONTSIZE, g2d
+                            Color.gray, Game.BASE_FONT_SIZE, g2d
                     );
 
                 }
@@ -323,14 +323,14 @@ public class Handler
         if ( showStats == false )
         {
             // render vitals tag
-            Renderer.renderString( "Vitals", stats_coord, Color.white, Game.BASEFONTSIZE, g2d );
+            Renderer.renderString( "Vitals", stats_coord, Color.white, Game.BASE_FONT_SIZE, g2d );
 
             // render vitals (HP etc.)
             Renderer.renderString(
                     "\nHP: " + Util.generateRichTextForColor( Game.GUI_HEALTH, player.getHealth( ).GetCurrentHealth( ) ) + " / " + player.getHealth( ).GetMaxHP( ) + "\n" +
                             "MP: " + Util.generateRichTextForColor( Game.GUI_MANA, player.getMana( ).GetCurrentMana( ) ) + " / " + player.getMana( ).GetMaxMP( ) + "\n",
                     stats_coord,
-                    Color.gray, Game.BASEFONTSIZE, g2d
+                    Color.gray, Game.BASE_FONT_SIZE, g2d
             );
         }
 
@@ -340,7 +340,7 @@ public class Handler
         {
 
             // render character info tag
-            Renderer.renderString( "CHARACTER", chainfo_coord, Color.white, Game.BASEFONTSIZE, g2d );
+            Renderer.renderString( "CHARACTER", chainfo_coord, Color.white, Game.BASE_FONT_SIZE, g2d );
 
             Resistances resistances = player.getResistances( );
             Offense offense = player.getOffense( );
@@ -423,7 +423,7 @@ public class Handler
                             resistances.getShockResistance( ),
                             resistances.getHolyResistance( )
 
-                    ), chainfo_coord, Color.gray, Game.BASEFONTSIZE, g2d
+                    ), chainfo_coord, Color.gray, Game.BASE_FONT_SIZE, g2d
             );
 
         }
@@ -471,11 +471,11 @@ public class Handler
         // render inventory tag
         Renderer.renderString(
                 "Inventory " + "(" + currentInvSpaces + " / " + player.getInventory( ).getMaxSize( ) + ")",
-                inventory_coord, Color.white, Game.BASEFONTSIZE, g2d
+                inventory_coord, Color.white, Game.BASE_FONT_SIZE, g2d
         );
 
         // render inventory items.
-        Renderer.renderString( "\n" + invItems, inventory_coord, Color.gray, Game.BASEFONTSIZE, g2d );
+        Renderer.renderString( "\n" + invItems, inventory_coord, Color.gray, Game.BASE_FONT_SIZE, g2d );
 
         // -------------------- EQUIPMENT ---------------------
 
@@ -491,10 +491,10 @@ public class Handler
         }
 
         // render equipment tag.
-        Renderer.renderString( "Equipment", equipment_coord, Color.white, Game.BASEFONTSIZE, g2d );
+        Renderer.renderString( "Equipment", equipment_coord, Color.white, Game.BASE_FONT_SIZE, g2d );
 
         // render equipment info.
-        Renderer.renderString( "\n" + equipmentInfo, equipment_coord, Color.gray, Game.BASEFONTSIZE, g2d );
+        Renderer.renderString( "\n" + equipmentInfo, equipment_coord, Color.gray, Game.BASE_FONT_SIZE, g2d );
 
         // -------------------- MOUSE HOVER ---------------------
         if ( hoverTile != null )
@@ -526,10 +526,10 @@ public class Handler
             String txt = String.format( "Tile: %s\nActor: %s\nItem: %s",
                     /*cachedTile.GetTilePosition().toString(),*/ tileinfo, actorinfo, iteminfo );
 
-            Renderer.renderString( txt, tileinfo_coord, Color.white, Game.BASEFONTSIZE, g2d );
+            Renderer.renderString( txt, tileinfo_coord, Color.white, Game.BASE_FONT_SIZE, g2d );
 
         }
-        else { Renderer.renderString( "", tileinfo_coord, Color.white, Game.BASEFONTSIZE, g2d ); }
+        else { Renderer.renderString( "", tileinfo_coord, Color.white, Game.BASE_FONT_SIZE, g2d ); }
     }
 
     private void drawItemInspectInfo( Item item, Coordinate inspect_coord, Graphics2D g2d )
@@ -771,7 +771,7 @@ public class Handler
         if ( intel > 0 ) inspectInfo += "Int: " + intel + "\n";
 
         // render item info
-        Renderer.renderString( inspectInfo, inspect_coord, Color.white, Game.BASEFONTSIZE, g2d );
+        Renderer.renderString( inspectInfo, inspect_coord, Color.white, Game.BASE_FONT_SIZE, g2d );
 
     }
 

@@ -17,7 +17,7 @@ import com.adventurer.data.World;
 import com.adventurer.enumerations.DamageType;
 import com.adventurer.enumerations.Direction;
 import com.adventurer.enumerations.DoorType;
-import com.adventurer.enumerations.GameState;
+import com.adventurer.enumerations.EGameState;
 import com.adventurer.enumerations.KeyType;
 import com.adventurer.enumerations.PlayerClass;
 import com.adventurer.enumerations.SpriteType;
@@ -213,7 +213,7 @@ public class Player extends Actor
                 // exit dungeon -> return to lobby.
 
                 // set game state to loading immediately.
-                Game.instance.setGameState( GameState.Loading );
+                Game.instance.setGameState( EGameState.LOADING );
 
                 // save session
                 Game.instance.getCurrentSession( ).saveSessionData( );
